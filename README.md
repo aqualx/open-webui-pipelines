@@ -4,7 +4,7 @@ This repository contains custom pipelines for [Open WebUI](https://github.com/op
 
 ## Pipeline: **Image to Text Pipeline**
 
-This pipeline is designed to extract text from images and analyze it using a general-purpose language model.
+This pipeline is designed to extract text from images and generate a response based on recognized text. It uses different models and prompts for vision-to-text and text-to-text generation.
 
 ### Key Features
 
