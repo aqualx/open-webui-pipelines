@@ -6,9 +6,9 @@ import time
 
 class Pipeline:
     class Valves(BaseModel):
-        OLLAMA_BASE_URL: str = Field(
+        OLLAMA_VISION_BASE_URL: str = Field(
             default="http://host.docker.internal:11434/v1",
-            description="Base URL for Ollama API.",
+            description="Base URL for vision Ollama API.",
         )
         VISION_MODEL_ID : str = Field(
             default="minicpm-v",
@@ -17,6 +17,10 @@ class Pipeline:
         VISION_PROMPT : str = Field(
             default="Extract all visible text to markdown blocks.",
             description="Prompt used for Vision model"
+        )
+        OLLAMA_GENERAL_PURPOSE_URL: str = Field(
+            default="http://host.docker.internal:11434/v1",
+            description="Base URL for vision Ollama API.",
         )
         GENERAL_PURPOSE_MODEL_ID : str = Field(
             default="llama3.1",
@@ -76,7 +80,7 @@ class Pipeline:
         else:
             start_time = time.time()
             try:
-                client = Client(host=self.valves.OLLAMA_BASE_URL)
+                client = Client(host=self.valves.OLLAMA_VISION_BASE_URL)
                 if self.images:
                     response = client.generate(
                         model=self.valves.VISION_MODEL_ID,
@@ -97,6 +101,8 @@ class Pipeline:
                     prompt = f'{prompt_message}\n///\n{response_from_vision}'
 
                     print(f'Vision model took: {int(time.time()-start_time)}s')
+                    if self.valves.OLLAMA_VISION_BASE_URL != self.valves.OLLAMA_GENERAL_PURPOSE_URL:
+                        client = Client(host=self.valves.OLLAMA_GENERAL_PURPOSE_URL)
 
                     response = client.generate(
                         model=self.valves.GENERAL_PURPOSE_MODEL_ID,

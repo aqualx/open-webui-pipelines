@@ -18,11 +18,21 @@ This pipeline is designed to extract text from images and generate a response ba
 
 ### Pipeline Parameters
 
+<<<<<<< Updated upstream
 - **`OLLAMA_BASE_URL`**: URL pointing to your Ollama server API endpoint.  
   _Default: `http://host.docker.internal:11434/v1`_
   
 - **`VISION_MODEL_ID`**: ID of the vision model used for text extraction.  
   _Default: `minicpm-v`_
+=======
+*   **`OLLAMA_VISION_URL`**: The URL pointing to your Ollama server API endpoint used for vision. (Defaults to `http://host.docker.internal:11434/v1`)
+*   **`VISION_MODEL_ID`**:  The ID of the vision model used for text extraction. (Defaults to `minicpm-v`)
+*   **`VISION_PROMPT`**: The prompt provided to the vision model for extracting text.
+*   **`OLLAMA_GENERAL_PURPOSE_URL`**: The URL pointing to your Ollama server API endpoint used for general-purpose. (Defaults to `http://host.docker.internal:11434/v1`)
+*   **`GENERAL_PURPOSE_MODEL_ID`**: The ID of the general-purpose language model used for analysis. (Defaults to `llama3.1`)
+*   **`GENERAL_PURPOSE_PROMPT`**:  The default prompt provided to the general-purpose model. (Defaults to a template for answering questions and providing explanations).
+*   **`USER_PROMPT_TO_USE_DEFAULT_PROMPT_FOR_GENERAL_PURPOSE_MODEL`**:  User marker to use default prompt for general-purpose model.
+>>>>>>> Stashed changes
 
 - **`VISION_PROMPT`**: The prompt provided to the vision model for text extraction.
 
