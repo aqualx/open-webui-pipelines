@@ -18,32 +18,16 @@ This pipeline is designed to extract text from images and generate a response ba
 
 ### Pipeline Parameters
 
-<<<<<<< Updated upstream
-- **`OLLAMA_BASE_URL`**: URL pointing to your Ollama server API endpoint.  
-  _Default: `http://host.docker.internal:11434/v1`_
+- **`OLLAMA_BASE_URL`** or **`OPEN_WEBUI_OLLAMA_PROXY_URL`**: URL pointing to your Ollama server API endpoint.
+  _Default: `http://OPEN_WEBUI_HOST/ollama`_
   
 - **`VISION_MODEL_ID`**: ID of the vision model used for text extraction.  
   _Default: `minicpm-v`_
-=======
-*   **`OLLAMA_VISION_URL`**: The URL pointing to your Ollama server API endpoint used for vision. (Defaults to `http://host.docker.internal:11434/v1`)
 *   **`VISION_MODEL_ID`**:  The ID of the vision model used for text extraction. (Defaults to `minicpm-v`)
 *   **`VISION_PROMPT`**: The prompt provided to the vision model for extracting text.
-*   **`OLLAMA_GENERAL_PURPOSE_URL`**: The URL pointing to your Ollama server API endpoint used for general-purpose. (Defaults to `http://host.docker.internal:11434/v1`)
 *   **`GENERAL_PURPOSE_MODEL_ID`**: The ID of the general-purpose language model used for analysis. (Defaults to `llama3.1`)
 *   **`GENERAL_PURPOSE_PROMPT`**:  The default prompt provided to the general-purpose model. (Defaults to a template for answering questions and providing explanations).
-*   **`USER_PROMPT_TO_USE_DEFAULT_PROMPT_FOR_GENERAL_PURPOSE_MODEL`**:  User marker to use default prompt for general-purpose model.
->>>>>>> Stashed changes
-
-- **`VISION_PROMPT`**: The prompt provided to the vision model for text extraction.
-
-- **`GENERAL_PURPOSE_MODEL_ID`**: ID of the general-purpose language model used for analysis.  
-  _Default: `llama3.1`_
-
-- **`GENERAL_PURPOSE_PROMPT`**: The default prompt used for the general-purpose model.  
-  _Default: Template for answering questions and providing explanations._
-
-- **`USER_PROMPT_TO_USE_DEFAULT_PROMPT_FOR_GENERAL_PURPOSE_MODEL`**: Marker to instruct the general-purpose model to use the default prompt.
-
+*   **`USER_PROMPT_TO_USE_DEFAULT_PROMPT`**:  User marker to use default prompt for general-purpose model.
 > For more details on parameters, see the `Valve` class within the code.
 
 ### Use Cases
@@ -54,7 +38,7 @@ This pipeline is designed to extract text from images and generate a response ba
   [![Demo of question task](https://img.youtube.com/vi/o_Kq1HiODcs/0.jpg)](https://www.youtube.com/watch?v=o_Kq1HiODcs)
 
 - **Analyzing Text-Based Images**  
-  Process images with textual information (e.g., signs, documents) to derive meaning and extract insights.
+  Process images with textual information (e.g., signs, documents, etc) to derive meaning and extract insights.
 
 - **Document Summarization**  
   Summarize the main points of documents captured as images, turning them into concise text.
