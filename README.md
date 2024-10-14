@@ -9,25 +9,30 @@ This pipeline is designed to extract text from images and generate a response ba
 ### Key Features
 
 1. **Image Text Recognition**  
-   Utilizes a vision-specific model (default: `minicpm-v`) to accurately recognize visible text within images.  
+   Utilizes a vision model to accurately recognize visible text within images.  
    - Supports multiple image inputs.  
-   - Analyzes images from the last user post by default.
+   - Analyze images from the last user post.
    
 2. **Text Analysis**  
-   The recognized text is passed to a general-purpose language model (default: `llama3.1`) for detailed analysis and response generation based on the provided prompt or user query.
+   The recognized text is passed to a general-purpose language model for detailed analysis and response generation based on the provided prompt or user query.
 
 ### Pipeline Parameters
 
-- **`OLLAMA_BASE_URL`** or **`OPEN_WEBUI_OLLAMA_PROXY_URL`**: URL pointing to your Ollama server API endpoint.
-  _Default: `http://OPEN_WEBUI_HOST/ollama`_
+- **`OLLAMA_BASE_URL`**: URL pointing to your Ollama server API or Open WebUI proxy endpoint.
+
+   _Default: `http://OPEN_WEBUI_HOST/ollama`_
+- **`VISION_MODEL_ID`**: ID of the vision model used for text extraction.
+
+   _Default: `minicpm-v:latest`_
+* **`VISION_PROMPT`**: The prompt provided to the vision model for extracting text.
+* **`GENERAL_PURPOSE_MODEL_ID`**: The ID of the general-purpose language model used for analysis.
+
+   _Default: `llama3.1:latest`_
+* **`GENERAL_PURPOSE_PROMPT`**:  The default prompt provided to the general-purpose model.
+* **`USER_PROMPT_TO_USE_DEFAULT_PROMPT`**:  User marker to use default prompt for general-purpose model.
+
+   _Default: `_`_
   
-- **`VISION_MODEL_ID`**: ID of the vision model used for text extraction.  
-  _Default: `minicpm-v`_
-*   **`VISION_MODEL_ID`**:  The ID of the vision model used for text extraction. (Defaults to `minicpm-v`)
-*   **`VISION_PROMPT`**: The prompt provided to the vision model for extracting text.
-*   **`GENERAL_PURPOSE_MODEL_ID`**: The ID of the general-purpose language model used for analysis. (Defaults to `llama3.1`)
-*   **`GENERAL_PURPOSE_PROMPT`**:  The default prompt provided to the general-purpose model. (Defaults to a template for answering questions and providing explanations).
-*   **`USER_PROMPT_TO_USE_DEFAULT_PROMPT`**:  User marker to use default prompt for general-purpose model.
 > For more details on parameters, see the `Valve` class within the code.
 
 ### Use Cases
