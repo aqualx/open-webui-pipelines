@@ -1,6 +1,7 @@
 # Open WebUI Pipelines
 
 This repository contains custom pipelines for [Open WebUI](https://github.com/open-webui/pipelines/), designed to extend its capabilities and unlock new, powerful use cases.
+[![Personal local image AI analyzed](https://img.youtube.com/vi/dYXKgu5Qb_I/0.jpg)](https://youtu.be/dYXKgu5Qb_I)
 
 ## Pipeline: **Image to Text Pipeline**
 
